@@ -30,11 +30,13 @@
               <input type="hidden" name="message" />
 
 
-              <div class="input-group justify-content-center">
-              <input id="email" type="email" class="email" name="email" placeholder=" your email" onkeyup="stoppedTyping(this)"/>
+            <div class="col-sm-5 input-center">
+              <div class="input-group input-group-sm">
+                <input id="email" name="email" type="email" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"  placeholder=" your email" onkeyup="stoppedTyping(this)">
               <div class="input-group-append">
-              <button class="signup-btn" id="my-form-button" disabled>Learn more</button>
-          </div></div>
+                  <button class="signup-btn btn btn-secondary btn-sm" id="my-form-button" disabled>Learn more</button>
+              </div>
+            </div></div>
 
               <p id="my-form-status"></p>
             </form>
