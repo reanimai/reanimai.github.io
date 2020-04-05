@@ -20,6 +20,7 @@ function signup(e) {
 
     var form = document.getElementById("contact-form");
     var status = document.getElementById("contact-form-status");
+    status.innerHTML = '&nbsp;'
     form.style.display = "none";
     var status_interval = setInterval(loading_status, 300)
 
@@ -47,7 +48,7 @@ function loading_status(){
     var status = document.getElementById("contact-form-status");
 
     base_str = "We are signing you up"
-    if (status.innerHTML == null || status.innerHTML == '') {
+    if (status.innerHTML == null || status.innerHTML == '&nbsp;') {
       status.innerHTML = base_str + "   ";
     }
 
