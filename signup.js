@@ -14,7 +14,7 @@ function signup(e) {
     }
 
    var data = {
-      message : $("#message").val(),
+      name : "sign-up",
       email : $("#email").val()
     };
 
