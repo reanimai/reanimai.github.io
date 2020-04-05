@@ -24,19 +24,20 @@
             Games should not be linear.</br>
             We are using state of the art AI to understand your users and bring stories to life.
 
-        <form id="my-form" action="https://formspree.io/xlewdbna" method="POST">
-          <input type="hidden" name="message" />
+        <form id="contact-form" method="POST">
+          <input type="hidden" name="message" value="contact" />
           <div class="col-sm-5 input-center">
             <div class="input-group input-group-sm">
               <input id="email" name="email" type="email" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"  placeholder=" your email" onkeyup="stoppedTyping(this)">
               <div class="input-group-append">
-                <button class="signup-btn btn btn-secondary btn-sm" id="my-form-button" disabled>Learn more</button>
+                <button id="contact-form-button" class="signup-btn btn btn-secondary btn-sm form-control" type="submit" onClick="signup(event)" disabled>Learn more</button>
               </div>
             </div>
           </div>
 
-          <p id="my-form-status"></p>
         </form>
+          <p id="contact-form-status"></p>
+
 
         </p>
       </main>
@@ -54,6 +55,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   </body>
 </html>

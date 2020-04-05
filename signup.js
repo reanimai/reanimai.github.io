@@ -1,53 +1,48 @@
-window.addEventListener("DOMContentLoaded", function() {
+function signup(e) {
+   e.preventDefault();
+   var URL =  "https://l9fmumcc19.execute-api.eu-west-1.amazonaws.com/production/submit";
 
-    // get the form elements defined in your form HTML above
-    
-    var form = document.getElementById("my-form");
-    var button = document.getElementById("my-form-button");
-    var status = document.getElementById("my-form-status");
-
-    // Success and Error functions for after the form is submitted
-    
-    function success() {
-      form.reset();
-      button.style = "display: none ";
-      status.innerHTML = "Thank you, we will stay in touch!";
+    if ($("#email").val()=="") {
+        alert ("Please enter your email id");
+        return;
     }
 
-    function error(status, response, responseType) {
-      status.innerHTML = "There was a problem submitting your email.";
+    var reeamil = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,6})?$/;
+    if (!reeamil.test($("#email").val())) {
+        alert ("Please enter valid email address");
+        return;
     }
 
-    // handle the form submission event
-
-    form.addEventListener("submit", function(ev) {
-      ev.preventDefault();
-      var data = new FormData(form);
-      ajax(form.method, form.action, data, success, error);
-    });
-  });
-  
-  // helper function for sending an AJAX request
-
-  function ajax(method, url, data, success, error) {
-    var xhr = new XMLHttpRequest();
-    xhr.open(method, url);
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState !== XMLHttpRequest.DONE) return;
-      if (xhr.status === 200) {
-        success(xhr.response, xhr.responseType);
-      } else {
-        error(xhr.status, xhr.response, xhr.responseType);
-      }
+   var data = {
+      message : $("#message").val(),
+      email : $("#email").val()
     };
-    xhr.send(data);
-  }
 
-  function stoppedTyping(text){
-        if(text.value.length > 0) { 
-            document.getElementById('my-form-button').disabled = false; 
-        } else { 
-            document.getElementById('my-form-button').disabled = true;
-        }
-    }
+    var form = document.getElementById("contact-form");
+    var status = document.getElementById("contact-form-status");
+    form.style.display = "none";
+    status.innerHTML = "We are signing you up...";
+
+   $.ajax({
+     type: "POST",
+     url : URL,
+     dataType: "json",
+     crossDomain: "true",
+     contentType: "application/json; charset=utf-8",
+     data: JSON.stringify(data),
+
+     success: function () {
+        status.innerHTML = "Thank you, we will stay in touch!";
+     },
+     error: function () {
+        status.innerHTML = "There was a problem submitting your email.";
+     }});
+}
+
+function stoppedTyping(text){
+      if(text.value.length > 0) { 
+          document.getElementById('contact-form-button').disabled = false; 
+      } else { 
+          document.getElementById('contact-form-button').disabled = true;
+      }
+  }
