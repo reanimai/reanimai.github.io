@@ -92,7 +92,7 @@ body {
 
 
 .content-div {
-  padding: 2rem 4rem;
+  padding: 0rem 4rem;
 }
 
 .footer {
@@ -115,4 +115,8 @@ body {
 .input-center {
   margin: 0 auto;
   float: none;
+}
+
+.contact-form {
+  margin-block-end: 0em;
 }

@@ -2,14 +2,12 @@ function signup(e) {
    e.preventDefault();
    var URL =  "https://l9fmumcc19.execute-api.eu-west-1.amazonaws.com/production/submit";
 
-    if ($("#email").val()=="") {
-        alert ("Please enter your email id");
-        return;
-    }
+    var form = document.getElementById("contact-form");
+    var status = document.getElementById("contact-form-status");
 
     var reeamil = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,6})?$/;
     if (!reeamil.test($("#email").val())) {
-        alert ("Please enter valid email address");
+        status.innerHTML = "<span style='color: red;'>Please enter a valid email address</span>";
         return;
     }
 
@@ -18,11 +16,9 @@ function signup(e) {
       email : $("#email").val()
     };
 
-    var form = document.getElementById("contact-form");
-    var status = document.getElementById("contact-form-status");
-    status.innerHTML = '&nbsp;'
-    form.style.display = "none";
+    loading_status()
     var status_interval = setInterval(loading_status, 300)
+    form.style.visibility = "hidden";
 
    $.ajax({
      type: "POST",
