@@ -1,0 +1,18 @@
+{
+    "placeholders": {
+        "ask": "Hello Doctor, I'm ready for your questions..."
+    },
+    "selects": {
+        "Bryce": "Session I,Session II,Session III,Session IV,Session V",
+        "Claire": "Session I,Session II,Session III,Session IV,Session V",
+        "Elin": "Session I,Session II,Session III,Session IV,Session V",
+        "Jaya": "Session II,Session III,Session IV,Session V",
+        "Marianna": "Session I,Session II,Session III,Session IV,Session V",
+        "Nathan": "Session I,Session II,Session III,Session IV,Session V",
+        "Jasmine": "Session II",
+        "Glyn": "Session IV",
+        "Lacey": "Session II",
+        "Scarlett": "Session IV",
+        "Prof. Warwick": "Session III"
+    }
+}
