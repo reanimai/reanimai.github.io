@@ -1,5 +1,5 @@
 const QA_URL = "https://r15dwaoi2m.execute-api.eu-west-1.amazonaws.com/production/qa";
-const QA_INIT_SECONDS = 30;
+const QA_INIT_SECONDS = 40;
 
 var start_qa_interval, loading_interval, status_timestamp = -1, is_loading = false;
 
