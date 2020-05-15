@@ -71,7 +71,7 @@
 
     <script>
 
-      function signup_copy(response) {
+      function signup_copy(captcha_response) {
         console.log(response)
          var URL =  "https://l9fmumcc19.execute-api.eu-west-1.amazonaws.com/production/submit";
 
@@ -87,6 +87,7 @@
          var data = {
             name : "sign-up",
             email : $("#email").val()
+            captcha: captcha_response
           };
 
           loading_status()
