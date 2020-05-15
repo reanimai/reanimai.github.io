@@ -1,4 +1,4 @@
-function signup(e) {
+function signup(captcha_response) {
    e.preventDefault();
    var URL =  "https://l9fmumcc19.execute-api.eu-west-1.amazonaws.com/production/submit";
 
@@ -13,7 +13,8 @@ function signup(e) {
 
    var data = {
       name : "sign-up",
-      email : $("#email").val()
+      email : $("#email").val(),
+      captcha : captcha_response
     };
 
     loading_status()
@@ -38,6 +39,23 @@ function signup(e) {
         clearInterval(status_interval)
      }});
 }
+
+ function captcha_callback(response) {
+    return new Promise(function(resolve, reject) { 
+      document.getElementById("captcha").style.display='none';
+      signup_copy(response);
+      resolve();
+    })
+  }
+
+function captcha_signup(e) {
+    e.preventDefault();
+    grecaptcha.render('captcha', {
+      'sitekey' : '6Lc_vPcUAAAAAPcfcndR_45KB7edSb426aUTNnTe',
+      'theme' : 'dark',
+      'callback' : captcha_callback
+    });
+};
 
 
 function loading_status(){
