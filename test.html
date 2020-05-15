@@ -1,0 +1,93 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Reanimai</title></head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162889675-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-162889675-1');
+    </script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+  </head>
+
+
+
+  <body class="text-center">
+
+    <div class="container d-flex h-100 p-3 mx-auto flex-column bg-image">
+      <header class="mb-auto">
+        <div class="inner">
+          <h3 class="company-name">Reanim<font class='company-name-ai'>ai</font></h3>
+        </div>
+      </header>
+
+      <main role="main" class="inner content-div mt-auto">
+        <h3>Animate gaming</h3>
+        <p class="lead content">
+            Games should not be linear.</br>
+            We are using state of the art AI to engage with your users and bring stories to life.
+
+        <form id="contact-form" class="contact-form" method="POST">
+          <div class="col-sm-5 input-center">
+            <div class="input-group input-group-sm">
+             <div class="input-group input-group-sm mb-3">
+              <input id="email" name="email" type="email" class="form-control" aria-label="Small" placeholder=" your email" onkeyup="stoppedTyping(this)">
+              <div class="input-group-append input-group-sm">
+                <button id="contact-form-button" class="signup-btn btn btn-secondary form-control" type="submit" onClick="signup_more(event)" disabled>Learn more</button>
+              </div>
+            </div>
+            </div>
+            <div id="captcha"></div>
+          </div>
+        </form>
+          <p id="contact-form-status">&nbsp;</p>
+
+
+        </p>
+      </main>
+
+        <div class="footer inner">
+         <p><a href="mailto:hello@reanimai.com"><i class="fa fa-envelope" aria-hidden="true"></i> hello@reanimai.com</a></br>
+         © Reanimai, 2020</p>
+        </div>
+      </footer>
+    </div>
+    
+
+
+    <script src="signup.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+    <script>
+      function captcha_callback() {
+        return new Promise(function(resolve, reject) { 
+          document.getElementById("captcha").style.display='none';
+          signup(e);
+          resolve();
+        })
+      }
+
+      function signup_more(e) {
+        e.preventDefault();
+        grecaptcha.render('captcha', {
+          'sitekey' : '6Lc_vPcUAAAAAPcfcndR_45KB7edSb426aUTNnTe',
+          'theme' : 'dark',
+          'callback' : captcha_callback
+        });
+      };
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
+
+  </body>
+</html>
