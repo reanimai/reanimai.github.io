@@ -43,7 +43,7 @@ function signup(captcha_response) {
  function captcha_callback(response) {
     return new Promise(function(resolve, reject) { 
       document.getElementById("captcha").style.display='none';
-      signup_copy(response);
+      signup(response);
       resolve();
     })
   }
