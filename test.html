@@ -70,10 +70,50 @@
 
 
     <script>
+
+      function signup_copy() {
+         var URL =  "https://l9fmumcc19.execute-api.eu-west-1.amazonaws.com/production/submit";
+
+          var form = document.getElementById("contact-form");
+          var status = document.getElementById("contact-form-status");
+
+          var reeamil = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,6})?$/;
+          if (!reeamil.test($("#email").val())) {
+              status.innerHTML = "<span style='color: red;'>Please enter a valid email address</span>";
+              return;
+          }
+
+         var data = {
+            name : "sign-up",
+            email : $("#email").val()
+          };
+
+          loading_status()
+          var status_interval = setInterval(loading_status, 300)
+          form.style.visibility = "hidden";
+
+         $.ajax({
+           type: "POST",
+           url : URL,
+           dataType: "json",
+           crossDomain: "true",
+           contentType: "application/json; charset=utf-8",
+           data: JSON.stringify(data),
+
+           success: function () {
+              status.innerHTML = "Thank you, we will stay in touch!";
+           },
+           error: function () {
+              status.innerHTML = "There was a problem submitting your email.";
+           },
+           complete: function(){
+              clearInterval(status_interval)
+           }});
+
       function captcha_callback() {
         return new Promise(function(resolve, reject) { 
           document.getElementById("captcha").style.display='none';
-          signup();
+          signup_copy();
           resolve();
         })
       }
