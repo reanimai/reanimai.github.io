@@ -37,13 +37,14 @@
         <form id="contact-form" class="contact-form" method="POST">
           <div class="col-sm-5 input-center">
             <div class="input-group input-group-sm">
-              <input id="email" name="email" type="email" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"  placeholder=" your email" onkeyup="stoppedTyping(this)">
-              <div class="input-group-append">
-                <button id="contact-form-button" class="signup-btn btn btn-secondary btn-sm form-control" type="submit" onClick="signup(event)" disabled>Learn more</button>
+             <div class="input-group input-group-sm mb-3">
+              <input id="email" name="email" type="email" class="form-control" aria-label="Small" placeholder=" your email" onkeyup="stoppedTyping(this)">
+              <div class="input-group-append input-group-sm">
+                <button id="contact-form-button" class="signup-btn btn btn-secondary form-control" type="submit" onClick="signup(event)" disabled>Learn more</button>
               </div>
             </div>
+            </div>
           </div>
-
         </form>
           <p id="contact-form-status">&nbsp;</p>
 
