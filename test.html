@@ -36,6 +36,7 @@
 
         <form id="contact-form" class="contact-form" method="POST">
           <div class="col-sm-5 input-center">
+            <div id="captcha" style="z-index: 10; position: absolute; top: 0px; left: 0px;"></div>
             <div class="input-group input-group-sm">
              <div class="input-group input-group-sm mb-3">
               <input id="email" name="email" type="email" class="form-control" aria-label="Small" placeholder=" your email" onkeyup="stoppedTyping(this)">
@@ -44,7 +45,6 @@
               </div>
             </div>
             </div>
-            <div id="captcha" style="z-index: 10; position: absolute; top: 0px; left: 0px;"></div>
           </div>
         </form>
           <p id="contact-form-status">&nbsp;</p>
