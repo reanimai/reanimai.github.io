@@ -73,7 +73,7 @@
       function captcha_callback() {
         return new Promise(function(resolve, reject) { 
           document.getElementById("captcha").style.display='none';
-          signup(e);
+          signup();
           resolve();
         })
       }
