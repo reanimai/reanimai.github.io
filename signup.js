@@ -1,5 +1,4 @@
 function signup(captcha_response) {
-   e.preventDefault();
    var URL =  "https://l9fmumcc19.execute-api.eu-west-1.amazonaws.com/production/submit";
 
     var form = document.getElementById("contact-form");
