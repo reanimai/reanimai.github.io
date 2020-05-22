@@ -1,14 +1,8 @@
 function signup(captcha_response) {
    var URL =  "https://l9fmumcc19.execute-api.eu-west-1.amazonaws.com/production/submit";
 
-    var form = document.getElementById("contact-form");
-    var status = document.getElementById("contact-form-status");
-
-    var reeamil = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,6})?$/;
-    if (!reeamil.test($("#email").val())) {
-        status.innerHTML = "<span style='color: red;'>Please enter a valid email address</span>";
-        return;
-    }
+   var form = document.getElementById("contact-form");
+   var status = document.getElementById("contact-form-status");
 
    var data = {
       name : "sign-up",
@@ -49,6 +43,15 @@ function signup(captcha_response) {
 
 function captcha_signup(e) {
     e.preventDefault();
+    var status = document.getElementById("contact-form-status");
+
+    var reeamil = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,6})?$/;
+    if (!reeamil.test($("#email").val())) {
+        status.innerHTML = "<span style='color: red;'>Please enter a valid email address</span>";
+        return;
+    }
+
+    status.innerHTML = ' '
     grecaptcha.render('captcha', {
       'sitekey' : '6Lc_vPcUAAAAAPcfcndR_45KB7edSb426aUTNnTe',
       'theme' : 'dark',
