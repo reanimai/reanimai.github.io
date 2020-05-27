@@ -34,7 +34,8 @@ function populate_elements(){
       success: function (data) {
         populate_placeholders(data["placeholders"])
         populate_sessions(data["selects"])
-      }
+      },
+      async: false
     });
 }
 
