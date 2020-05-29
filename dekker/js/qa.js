@@ -178,7 +178,6 @@ function display_container(container){
 
 function limit_demo(){
     if (Cookies.get('username') == 'demo'){
-        document.getElementById('kw-answer-div').style.display = 'none'
         person_select = document.getElementById('person-select')
         for (var i=person_select.length-1; i>0; i--) {
             person_select.remove(i);
