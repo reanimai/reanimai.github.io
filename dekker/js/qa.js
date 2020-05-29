@@ -103,24 +103,42 @@ function initial_login() {
 }
 
 function ask_qa(button) {
-    button.disabled = true
+    ask_button = document.getElementById('ask-button')
+    random_button = document.getElementById('random-button')
+
     $("#ai-answer").val("");
     $("#kw-answer").val("");
+
+    if (button == ask_button){
+        question = $('#ask-text').val()
+        if (question == '') {
+            return
+        }
+    } else {
+        question = '*'
+    }
+
+    ask_button.disabled = true
+    random_button.disabled = true
+
     success_fn = function (data) {
         if (data["body"] != null){
             $("#ai-answer").val(data["body"]["qa_result"]);
             $("#kw-answer").val(data["body"]["kw_result"]);
+            $("#ask-text").val(data["body"]["question"]);
         }
     }
     error_fn = function () {
         $("#ai-answer").val("There was some problem with the server...");
     }
     complete_fn = function () {
-        button.disabled = false
+        ask_button.disabled = false
+        random_button.disabled = false
     }
+
     qa(type='question',
        success_fn=success_fn, error_fn=error_fn, complete_fn=complete_fn,
-       question=$('#ask-text').val(), person=$("#person-select").val(), session=$("#session-select").val())
+       question=question, person=$("#person-select").val(), session=$("#session-select").val())
     return false
 }
 
