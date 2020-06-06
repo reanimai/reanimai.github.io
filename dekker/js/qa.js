@@ -143,7 +143,6 @@ function ask_qa(button) {
 }
 
 function start_loading(){
-    limit_demo()
     is_loading = true
     display_container("loading-container")
     NProgress.configure({ parent: '#loading-bar', minimum: 0.00001 });
@@ -173,16 +172,6 @@ function display_container(container){
         } else {
             element.style.display = 'none'
         }
-    }
-}
-
-function limit_demo(){
-    if (Cookies.get('username') != 'tim'){
-        person_select = document.getElementById('person-select')
-        for (var i=person_select.length-1; i>0; i--) {
-            person_select.remove(i);
-        }
-        $('select').selectpicker('refresh');
     }
 }
 
