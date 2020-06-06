@@ -177,7 +177,7 @@ function display_container(container){
 }
 
 function limit_demo(){
-    if (Cookies.get('username') == 'demo'){
+    if (Cookies.get('username') != 'tim'){
         person_select = document.getElementById('person-select')
         for (var i=person_select.length-1; i>0; i--) {
             person_select.remove(i);
