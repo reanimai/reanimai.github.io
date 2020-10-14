@@ -1,8 +1,0 @@
-{
-    "placeholders": {
-        "ask": "Hello Doctor, I'm ready for your questions..."
-    },
-    "selects": {
-        "Bryce": "Session I,Session II,Session III,Session IV,Session V"
-    }
-}
